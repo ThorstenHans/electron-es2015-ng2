@@ -1,0 +1,26 @@
+{
+  "name": "electron-ng2-es2015",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Thorsten Hans <thorsten.hans@gmail.com> (http://www.xplatform.rocks)",
+  "license": "MIT",
+  "devDependencies": {
+    "babel-preset-es2015": "^6.1.18",
+    "del": "^2.1.0",
+    "gulp": "^3.9.0",
+    "gulp-atom-electron": "^1.0.0",
+    "gulp-babel": "^6.1.0",
+    "gulp-concat": "^2.6.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-symdest": "^1.0.0",
+    "run-sequence": "^1.1.4"
+  },
+  "dependencies": {
+    "angular2": "2.0.0-alpha.44"
+  }
+}
