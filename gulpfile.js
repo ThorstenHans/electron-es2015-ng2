@@ -35,12 +35,13 @@ gulp.task('private:app-html', function(){
 });
 
 var buildApp = function(platform, slug){
-    gulp.src(['package.json', 'dist/**/*'])
+    gulp.src(['package.json', 'dist/**/*', '!dist/server/**/*'])
         .pipe(electron({
             version: '0.34.3',
             platform: platform }))
         .pipe(symdest('package/ng2-es2015-electron-'+slug));
 };
+
 gulp.task('private:app-package', function(){
     var platforms = [{ platform: 'darwin', slug: 'osx'}, { platform: 'win32', slug: 'windows'}, { platform: 'linux', slug: 'linux'}];
     platforms.map(function(p){
@@ -48,6 +49,13 @@ gulp.task('private:app-package', function(){
     });
 });
 
+gulp.task('private:server-js', function(){
+     return gulp.src('src/server/**/*.js')
+        .pipe(concat('index.js'))
+        .pipe(babel({presets: ['es2015']}))
+        .pipe(gulp.dest('dist/server'));
+});
+
 gulp.task('default', function(done){
-    return inSequence('private:clean', ['private:vendor-js','private:app-js', 'private:app-html'], 'private:app-package',done);
+    return inSequence('private:clean', ['private:server-js', 'private:vendor-js', 'private:app-js', 'private:app-html'], 'private:app-package',done);
 });
