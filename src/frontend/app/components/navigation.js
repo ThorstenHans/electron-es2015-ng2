@@ -7,7 +7,8 @@ export var Navigation = ng.Component({
 
         },
         doCrash: () => {
-            
+            var ipc = require('ipc');
+            ipc.send('crash');
             
         },
         toggleDevTools: () => {
