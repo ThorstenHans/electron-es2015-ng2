@@ -30,8 +30,6 @@ app.on('ready', () =>{
   mainWindow = new BrowserWindow({width: 800, height: 600, frame:false});
 
   mainWindow.loadUrl('file://' + __dirname + '/../frontend/index.html');
-mainWindow.openDevTools();
-  
 
   mainWindow.on('closed', () => {
     mainWindow = null;
