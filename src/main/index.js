@@ -16,6 +16,10 @@ ipc.on('crash', (event, arg) => {
     process.crash(arg);
 });
 
+ipc.on('toggleDevTools', (event, arg) => {
+  mainWindow.openDevTools();
+});
+
 app.on('window-all-closed', () => {
   if (process.platform != 'darwin') {
     app.quit();
@@ -23,11 +27,11 @@ app.on('window-all-closed', () => {
 });
 
 app.on('ready', () =>{
-  mainWindow = new BrowserWindow({width: 800, height: 600});
+  mainWindow = new BrowserWindow({width: 800, height: 600, frame:false});
 
   mainWindow.loadUrl('file://' + __dirname + '/../frontend/index.html');
-
-  mainWindow.openDevTools();
+mainWindow.openDevTools();
+  
 
   mainWindow.on('closed', () => {
     mainWindow = null;

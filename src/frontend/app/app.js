@@ -1,23 +1,20 @@
-(function(jQuery, $){
-    'use strict';
+import {Navigation} from 'components/navigation';
 
-    var App = ng.Component({
-        selector: 'ng2-app',
-        template: `<h1>Hey electron, this is ng2</h1>
-            <button (click)="doCrash()">Send crash</button>
-        `
-    })
-    .Class({
-        constructor: () => {
-            
-        },
-        doCrash: () => {
-            var ipc = require('ipc');
-            ipc.send('crash', 'Something bad happened...');
-        }
-    });
+export var App = ng.Component({
+    selector: 'approot',
+    directives: [Navigation],
+    templateUrl: 'app/app.html'
+})
+.Class({
+    constructor: () => {
+    },
+    doCrash: () => {
+        var ipc = require('ipc');
+        ipc.send('crash', 'Something bad happened...');
+    }
+});
 
-    document.addEventListener('DOMContentLoaded', () => {
-        ng.bootstrap(App);
-    });
-})();
+export function main(){
+
+    ng.bootstrap(App);
+}

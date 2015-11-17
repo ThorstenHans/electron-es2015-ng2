@@ -16,12 +16,16 @@
     "gulp-atom-electron": "^1.0.0",
     "gulp-babel": "^6.1.0",
     "gulp-concat": "^2.6.0",
+    "gulp-inject": "^3.0.0",
     "gulp-rename": "^1.2.2",
     "gulp-symdest": "^1.0.0",
     "run-sequence": "^1.1.4"
   },
   "dependencies": {
     "angular2": "2.0.0-alpha.44",
-    "restify": "^4.0.3"
+    "babel-plugin-syntax-decorators": "^6.1.18",
+    "babel-plugin-transform-es2015-modules-systemjs": "^6.1.18",
+    "restify": "^4.0.3",
+    "systemjs": "^0.19.6"
   }
 }
